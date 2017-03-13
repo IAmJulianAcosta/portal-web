@@ -1,1 +1,26 @@
-{{outlet}}
+{{#paper-sidenav-container class="inner-sidenav"}}
+  {{#paper-sidenav
+     class="md-whiteframe-z2 side-navigation"
+     name="left"
+     open=leftSideBarOpen
+     onToggle=(action (mut leftSideBarOpen))}}
+    {{#paper-toolbar}}
+      {{#paper-toolbar-tools class="toolbar-title"}}
+        {{#link-to 'index'}}
+          The Apothecary Shoppe
+        {{/link-to}}
+      {{/paper-toolbar-tools}}
+    {{/paper-toolbar}}
+    {{#paper-list}}
+      {{#paper-item
+         onClick=(transition-to "employees")
+         class=(concat "menu-list-item" (if (eq "menu" currentRouteName) ' active'))}}
+        Employees
+      {{/paper-item}}
+    {{/paper-list}}
+  {{/paper-sidenav}}
+
+  {{#paper-card-content class="flex"}}
+    {{outlet}}
+  {{/paper-card-content}}
+{{/paper-sidenav-container}}

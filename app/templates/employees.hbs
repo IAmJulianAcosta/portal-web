@@ -1,0 +1,73 @@
+{{#paper-toolbar}}
+  {{#paper-toolbar-tools}}
+    {{#paper-sidenav-toggle name="left" as |toggleAction|}}
+      {{#paper-button iconButton=true classNames="hide-gt-sm" onClick=(action toggleAction)}}
+        {{paper-icon "menu"}}
+      {{/paper-button}}
+    {{/paper-sidenav-toggle}}
+    <h2>
+      Employees
+    </h2>
+    <span class="flex"></span>
+  {{/paper-toolbar-tools}}
+{{/paper-toolbar}}
+
+<div class="layout-row layout-xs-column">
+  <div class="flex">
+    {{#paper-card as |card|}}
+      {{#card.title as |title|}}
+        {{#title.text as |text|}}
+          {{#text.headline}}Edit Profile{{/text.headline}}
+        {{/title.text}}
+      {{/card.title}}
+    {{/paper-card}}
+  </div>
+</div>
+<div class="layout-row layout-xs-column">
+  <div class="flex-xs flex-gt-xs-50">
+    {{#paper-card as |card|}}
+      {{#card.title as |title|}}
+        <h3>
+          Dispensary
+        </h3>
+      {{/card.title}}
+      {{#card.content}}
+        <ul>
+          <li>
+            Nick
+          </li>
+        </ul>
+      {{/card.content}}
+    {{/paper-card}}
+    {{#paper-card as |card|}}
+      {{#card.title as |title|}}
+        <h3>
+          Cultivation
+        </h3>
+      {{/card.title}}
+      {{#card.content}}
+        <ul>
+          <li>
+            Mike
+          </li>
+        </ul>
+      {{/card.content}}
+    {{/paper-card}}
+  </div>
+  <div class="flex-xs flex-gt-xs-50">
+    {{#paper-card as |card|}}
+      {{#card.title as |title|}}
+        <h3>
+          Production
+        </h3>
+      {{/card.title}}
+      {{#card.content}}
+        <ul>
+          <li>
+            Ian
+          </li>
+        </ul>
+      {{/card.content}}
+    {{/paper-card}}
+  </div>
+</div>
