@@ -1,24 +1,30 @@
----
+notifications:
+  email: false
+dist: trusty
 language: node_js
 node_js:
-  - "4"
-
-sudo: false
-
+  - '4'
 cache:
   directories:
-    - $HOME/.npm
-    - $HOME/.cache # includes bowers cache
-
+    - "$HOME/.npm"
+    - "$HOME/.cache"
+addons:
+  firefox: 49.0
 before_install:
   - npm config set spin false
-  - npm install -g bower phantomjs-prebuilt
+  - npm install -g bower
   - bower --version
-  - phantomjs --version
-
 install:
   - npm install
   - bower install
-
+before_script:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - sleep 3
 script:
   - npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: "P3/kURjVteXyW77nzfFYSgaYp1QtoBPQw4DoVOdwb86GGmPB/Z40o4pXsIYFmBAks9Wh8aaGHEzF6M6pyRXazSy9gtfj41tXHjvF/iqY2yLKa+Nyhy07jSlCaYRNgggQdR8WEIYNmFl1i0WYbI+JfvUhmFDw1/yew67p9AaoifyrymE6/gemL21BjqH4hU6zdA90Ub72/FE1Y0ai8CqYmPubLmeSUsmYMlMrJG+/CuBeW1LjnzoJdZHexp1m5Jw78+pr+79e/4x9xOscZB4mfshbD202gvAJiKoc27gkCbHslUIzucbiydD/+b8hHh2xx8S7byYZ4bKpzFZKx05CpCnMA7DmSfG80ncAxuDXhrWKVprfVYxsPPlHPSVx64QrghoiB3K3mxkOcBuOq8/krkmdiKs+KWfjxOBE+hZJ5m+I3Ps7F9+ubf3bwehLTJ2BLRtdEt+3c+1B9sI/m22rotKuvzsNcocJDJQoqT1bI2sPlAfqty4gYih1ZMTjjuqjce8wJ3LYYo2Jl2eJ37/bF8obuShaHs/IZbpku81h+6HkU6WyLv/WOQqvLSx7LECXNvpRhQNYiNlwqFiXhVVuKgXAuS3vJ8jSN+eA+ZcHP1yzkOzktmzUv3e+au17LSm+7XTdP8UHgD9fxTuTr5sYcuFBNRghbehY0EgeM8mA1cc="
+  app: the-apothecary-shoppe-portal-w
