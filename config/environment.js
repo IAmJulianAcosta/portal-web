@@ -48,3 +48,6 @@ module.exports = function(environment) {
 
   return ENV;
 };
+
+// GOOGLE_ID
+// GOOGLE_SECRET
