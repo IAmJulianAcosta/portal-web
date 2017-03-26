@@ -1,0 +1,9 @@
+{{#unless session.isAuthenticated}}
+	{{#if isLink}}
+		{{#link-to "login"}}
+			{{#paper-button raised=true}}Login{{/paper-button}}
+		{{/link-to}}
+	{{else}}
+		{{#paper-button raised=true onClick=(action "login")}}Login{{/paper-button}}
+	{{/if}}
+{{/unless}}

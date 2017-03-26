@@ -16,6 +16,14 @@ module.exports = function(environment) {
         Date: false
       }
     },
+	torii: {
+		  providers: {
+			  'google-oauth2': {
+				  apiKey: process.env.GOOGLE_OAUTH_API_KEY,
+				  redirectUri: process.env.GOOGLE_OAUTH_REDIRECT_URI,
+			  }
+		  }
+	  },
 
     APP: {
       // Here you can pass flags/options to your application instance

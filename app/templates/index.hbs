@@ -9,6 +9,11 @@
       The Apothecary Shoppe
     </h2>
     <span class="flex"></span>
+	{{#if session.isAuthenticated}}
+		{{logout-button}}
+	{{else}}
+		{{login-button isLink=true}}
+	{{/if}}
   {{/paper-toolbar-tools}}
 {{/paper-toolbar}}
 
